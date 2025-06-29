@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Админка{% endblock %}
+{% block content %}
+  <h1 class="text-3xl mb-4">Редактировать гайды</h1>
+  <a href="{{ url_for('logout') }}" class="text-blue-400">Выйти</a>
+  <form method="POST">
+    <select name="class_select" class="p-2 rounded text-black">
+      {% for class in guides.keys() %}
+        <option value="{{ class }}" {% if class == selected_class %}selected{% endif %}>{{ class }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit" class="ml-2 px-4 py-2 bg-blue-600 rounded">Выбрать</button>
+    {% if selected_class %}
+      <textarea name="guide_text" rows="20" class="w-full p-4 mt-4 text-black rounded">{{ guide_text }}</textarea>
+      <button name="save" type="submit" class="mt-4 px-6 py-2 bg-green-600 rounded">Сохранить</button>
+    {% endif %}
+  </form>
+{% endblock %}

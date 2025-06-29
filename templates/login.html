@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Вход{% endblock %}
+{% block content %}
+  <h1 class="text-3xl mb-4">Вход в админку</h1>
+  {% if error %}<p class="text-red-400">{{ error }}</p>{% endif %}
+  <form method="POST">
+    <input type="text" name="username" placeholder="Логин" class="block mb-4 p-2 rounded text-black">
+    <input type="password" name="password" placeholder="Пароль" class="block mb-4 p-2 rounded text-black">
+    <button type="submit" class="px-6 py-2 bg-blue-600 rounded">Войти</button>
+  </form>
+{% endblock %}
